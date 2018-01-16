@@ -14,3 +14,7 @@ class TestAddFunction(TestCase):
     def test_adding_one_number_returns_the_same_number(self):
         add = self.calc.add('1')
         self.assertEqual(1, add)
+
+    def test_adding_two_numbers_returns_their_sum(self):
+        add = self.calc.add('1,2')
+        self.assertEqual(3, add)
