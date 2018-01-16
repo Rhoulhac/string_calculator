@@ -26,3 +26,7 @@ class TestAddFunction(TestCase):
     def test_adding_numbers_separated_by_new_line_returns_their_sum(self):
         add = self.calc.add('1\n2,3,4\n5')
         self.assertEqual(15, add)
+
+    def test_adding_numbers_separated_by_a_different_delimiter_returns_their_sum(self):
+        add = self.calc.add('//;\n1;2')
+        self.assertEqual(3, add)
