@@ -1,8 +1,11 @@
 class Calculator(object):
 
     def add(self, x):
-        if len(x.split(',')) == 2:
-            return int(x.split(',')[0]) + int(x.split(',')[1])
+        if len(x.split(',')) > 1:
+            total = 0
+            for num in x.split(','):
+                total += int(num)
+            return total
         elif x == '':
             return 0
         else:

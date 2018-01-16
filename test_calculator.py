@@ -18,3 +18,7 @@ class TestAddFunction(TestCase):
     def test_adding_two_numbers_returns_their_sum(self):
         add = self.calc.add('1,2')
         self.assertEqual(3, add)
+
+    def test_adding_unknown_amount_of_numbers_returns_their_sum(self):
+        add = self.calc.add('1,2,3,4,5')
+        self.assertEqual(15, add)
