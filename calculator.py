@@ -1,6 +1,3 @@
-import re
-
-
 class Calculator(object):
 
     def add(self, x):
@@ -17,8 +14,15 @@ class Calculator(object):
 
             if len(x.split(',')) > 1:
                 total = 0
+                negatives = []
                 for num in x.split(','):
-                    total += int(num)
-                return total
+                    if num.startswith('-'):
+                        negatives += [num]
+                    else:
+                        total += int(num)
+                if negatives:
+                    raise Exception('negatives not allowed: ' + ','.join(negatives))
+                else:
+                    return total
             else:
                 return int(x)

@@ -30,3 +30,8 @@ class TestAddFunction(TestCase):
     def test_adding_numbers_separated_by_a_different_delimiter_returns_their_sum(self):
         add = self.calc.add('//;\n1;2')
         self.assertEqual(3, add)
+
+    def test_adding_negative_numbers__returns_exception_message_with_negative_numbers(self):
+        with self.assertRaises(Exception) as context:
+            self.calc.add('1,2,-3,4,-5')
+        self.assertTrue('negatives not allowed: -3,-5' in str(context.exception))
